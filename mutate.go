@@ -1,7 +1,7 @@
 package goquery
 
 import (
-	"exp/html"
+	"code.google.com/p/go.net/html"
 	"strings"
 )
 
@@ -140,7 +140,7 @@ func (this *Selection) SetHtml(s string) *Selection {
 	return result
 }
 
-// SetText() replaces the children of each selected node with the given text 
+// SetText() replaces the children of each selected node with the given text
 // (properly escaped of course).
 // This is the same behavior as jQuery's .text() function.
 func (this *Selection) SetText(s string) *Selection {
