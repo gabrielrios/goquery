@@ -6,12 +6,16 @@ Supported functions are query-oriented features (`hasClass()`, `attr()` and the 
 
 Syntax-wise, it is as close as possible to jQuery, with the same function names when possible, and that warm and fuzzy chainable interface. jQuery being the ultra-popular library that it is, I felt that writing a similar HTML-manipulating library was better to follow its API than to start anew (in the same spirit as Go's `fmt` package), even though some of its methods are less than intuitive (looking at you, [index()][index]...).
 
+## Why This Fork?
+
+I like PuerkitoBio's goquery, but I needed mutation functions for a templating project so I'm adding them as I need them.  If you have requests from the mutation oriented aspects of the jQuery API don't hesitate to shoot me a request (otherwise I might never get around to whatever feature you want).
+
 ## Installation
 
     $ go get github.com/PuerkitoBio/goquery
 
 (optional) To run unit tests:
-    
+
     $ cd $GOPATH/src/github.com/PuerkitoBio/goquery
     $ go test
 
@@ -26,6 +30,8 @@ Syntax-wise, it is as close as possible to jQuery, with the same function names 
 *    **v0.3.1** : Add `NewDocumentFromResponse()` (thanks assassingj) which allows creating a goquery document from an http response.
 *    **v0.3.0** : Add `EachWithBreak()` which allows to break out of an `Each()` loop by returning false. This function was added instead of changing the existing `Each()` to avoid breaking compatibility.
 *    **v0.2.1** : Make go-getable, now that [go.net/html is Go1.0-compatible][gonet] (thanks to @matrixik for pointing this out).
+*    **v0.2.2** : Add Append() and Empty()
+*    **v0.2.1** : Add a few select mutation operations: Clone(), InsertBefore(), Remove(), RemoveAttr(), SetAttr(), and SetText
 *    **v0.2.0** : Add support for negative indices in Slice(). **BREAKING CHANGE** `Document.Root` is removed, `Document` is now a `Selection` itself (a selection of one, the root element, just like `Document.Root` was before). Add jQuery's Closest() method.
 *    **v0.1.1** : Add benchmarks to use as baseline for refactorings, refactor Next...() and Prev...() methods to use the new html package's linked list features (Next/PrevSibling, FirstChild). Good performance boost (40+% in some cases).
 *    **v0.1.0** : Initial release.
